@@ -7,21 +7,22 @@ class GUI(QWidget):
         super().__init__()
         self.setWindowTitle('제목')
 
-        self.group_box = QGroupBox('그룹')
+        self.text_label = QLabel()
 
-        self.button1 = QPushButton('버튼 1')
-        self.button2 = QPushButton('버튼 2')
+        self.list = QListWidget()
+        self.list.addItem('아이템 1')
+        self.list.addItem('아이템 2')
+        self.list.clicked.connect(self.select_item)
 
         self.hbox_layout = QHBoxLayout()
-        self.hbox_layout.addWidget(self.button1)
-        self.hbox_layout.addWidget(self.button2)
+        self.hbox_layout.addWidget(self.text_label)
+        self.hbox_layout.addWidget(self.list)
 
-        self.group_box.setLayout(self.hbox_layout)
+        self.setLayout(self.hbox_layout)
 
-        self.grid_layout = QGridLayout()
-        self.grid_layout.addWidget(self.group_box, 0, 0, 1, 1)
-
-        self.setLayout(self.grid_layout)
+    def select_item(self):
+        item = self.list.currentItem()
+        self.text_label.setText(item.text())
 
 
 def exception_hook(except_type, value, traceback):

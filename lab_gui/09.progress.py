@@ -7,21 +7,24 @@ class GUI(QWidget):
         super().__init__()
         self.setWindowTitle('제목')
 
-        self.group_box = QGroupBox('그룹')
+        self.progressbar = QProgressBar()
+        self.progressbar.setRange(0, 100)
 
-        self.button1 = QPushButton('버튼 1')
-        self.button2 = QPushButton('버튼 2')
+        self.value = 0
+        self.progressbar.setValue(self.value)
 
-        self.hbox_layout = QHBoxLayout()
-        self.hbox_layout.addWidget(self.button1)
-        self.hbox_layout.addWidget(self.button2)
-
-        self.group_box.setLayout(self.hbox_layout)
+        self.button = QPushButton('+1')
+        self.button.clicked.connect(self.button_click)
 
         self.grid_layout = QGridLayout()
-        self.grid_layout.addWidget(self.group_box, 0, 0, 1, 1)
+        self.grid_layout.addWidget(self.progressbar, 0, 0, 1, 1)
+        self.grid_layout.addWidget(self.button, 1, 0, 1, 1)
 
         self.setLayout(self.grid_layout)
+
+    def button_click(self):
+        self.value += 1
+        self.progressbar.setValue(self.value)
 
 
 def exception_hook(except_type, value, traceback):
