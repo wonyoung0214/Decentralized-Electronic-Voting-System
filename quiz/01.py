@@ -4,11 +4,11 @@ app = Flask(__name__)
 chain = []
 cnt = 0
 
-@app.route('/list',methods=['GET'])
+@app.route('/list', methods=['GET'])
 def vote_list():
     return jsonify(chain)
 
-@app.route('/open',methods=['POST'])
+@app.route('/open', methods=['POST'])
 def vote_open():
     global cnt
     try:
@@ -18,16 +18,16 @@ def vote_open():
             'data': {
                 'id': str(cnt),
                 'question': data['question'],
-                'options': data['options'],
+                'options': data['options']
             }
         }
         cnt += 1
         chain.append(block)
-        return jsonify({'status': 'success'}),
+        return jsonify({'status': 'success'})
     except:
         return jsonify({'status': 'fail'})
 
-@app.route('/vote',methods=['POST'])
+@app.route('/vote', methods=['POST'])
 def vote():
     try:
         data = request.get_json()

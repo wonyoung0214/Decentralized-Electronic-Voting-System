@@ -25,9 +25,11 @@ while True:
             'options': ['option1', 'option2', 'option3']
         }
 
-        res = requests.post('http://127.0.0.1:5000/open',
-        data=json.dumps(data),
-        headers=headers)
+        res = requests.post(
+            'http://127.0.0.1:5000/open',
+            data=json.dumps(data),
+            headers=headers
+        )
         print(res.text)
 
     elif menu == '3':
@@ -38,7 +40,11 @@ while True:
 
         data = {'id': 'id', 'vote': 'vote'}
 
-        res = requests.post('http://127.0.0.1:5000/vote', data=json.dumps(data), headers=headers)
+        res = requests.post(
+            'http://127.0.0.1:5000/vote',
+            data=json.dumps(data),
+            headers=headers
+        )
         print(res.text)
 
     elif menu == '4':
