@@ -34,7 +34,7 @@ class Tab1(QWidget):
         self.option1_button = QPushButton('선택지 2')
         self.option1_button = QPushButton('선택지 3')
 
-        
+
 
         self.vote_layout = QGridLayout()
         self.vote_layout.addWidget(self.menu_hbox_layout, 0, 0, 1, 2)
