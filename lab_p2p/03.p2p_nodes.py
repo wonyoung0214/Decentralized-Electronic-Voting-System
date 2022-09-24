@@ -5,7 +5,6 @@ import json
 nodes = []
 port = 6000
 
-
 def listen():
     while True:
         connection, address = listen_socket.accept()
@@ -14,7 +13,6 @@ def listen():
         receive_thread = threading.Thread(target=receive, args=(connection, address))
         receive_thread.daemon = True
         receive_thread.start()
-
 
 def receive(connection, address):
     while True:
@@ -36,7 +34,6 @@ def receive(connection, address):
             nodes.append((s, f'127.0.0.1:{data["data"]["port"]}'))
         elif data['type'] == 'chat':
             print(f'{address}의 메세지: {data["data"]["chat"]}')
-
 
 if __name__ == '__main__':
     while True:
