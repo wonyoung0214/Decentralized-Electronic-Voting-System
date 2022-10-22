@@ -1,11 +1,11 @@
 chain=[]
 
 block1={
-    'type':'open',
-    'data':{
-    'id':'투표 ID',
-    'question':'투표 질문',
-    'options':['투표 항목1','투표항목2','투표항목3']
+    'type': 'open',
+    'data': {
+    'id': '투표 ID',
+    'question': '투표 질문',
+    'options': ['투표 항목1','투표항목2','투표항목3']
 }
 }
 
